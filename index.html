@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hostinec V Zátiší, Vsetín – Potůčky</title>
+  <!-- Load Tailwind CSS from CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Lora', serif; }
+    /* Custom cream color class */
+    .bg-cream {
+      background-color: #FDFBD4;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 flex flex-col min-h-screen">
+  
+  <!-- Header and Navigation using cream as the accent color -->
+  <div class="sticky top-0 bg-cream z-50 border-b border-black">
+    <header class="text-center py-6 flex flex-col items-center">
+      <!-- Pub Logo Placeholder -->
+      <!-- <div class="w-24 h-24 rounded-full border border-black"></div> -->
+      <h1 class="text-4xl font-bold">HOSTINEC V ZÁTIŠÍ</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="border-t border-black">
+      <div class="max-w-4xl mx-auto px-4 py-3 flex justify-end items-center lg:hidden">
+        <button id="menu-toggle" class="text-xl">☰</button>
+      </div>
+      <ul id="menu" class="hidden flex-col lg:flex lg:flex-row lg:justify-center py-1 text-lg">
+        <li>
+          <a href="#"
+             class="block px-6 py-2 hover:bg-gray-200 hover:text-gray-900">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#"
+             class="block px-6 py-2 hover:bg-gray-200 hover:text-gray-900">
+            Menu
+          </a>
+        </li>
+        <li>
+          <a href="#"
+             class="block px-6 py-2 hover:bg-gray-200 hover:text-gray-900">
+            Events
+          </a>
+        </li>
+        <li>
+          <a href="#"
+             class="block px-6 py-2 hover:bg-gray-200 hover:text-gray-900">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="w-full max-w-screen-xl mx-auto p-6 text-center border-black flex-grow">
+    <h2 class="text-2xl font-semibold">Welcome to Pub Name</h2>
+    <p class="mt-4 text-lg">Enjoy a cozy atmosphere with great drinks, delicious food, and live music.</p>
+    
+    <div class="mt-6 border border-black p-4">
+      <h3 class="text-xl font-semibold">Aktuální nabídka</h3>
+      <p class="mt-2">Try our handcrafted cocktails, fresh beers, and gourmet pub dishes.</p>
+    </div>
+    
+    <div class="mt-6 border border-black p-4">
+      <h3 class="text-xl font-semibold">Nadcházející události</h3>
+      <p class="mt-2">Live music every Friday and Saturday! Check out our calendar for more details.</p>
+    </div>
+
+    <section class="mt-6 h-96 border-black border ">
+        <iframe
+          width="100%"
+          height="100%"
+          style="border:0; filter: grayscale(100%);"
+          loading="lazy"
+          allowfullscreen
+          src="https://www.google.com/maps?q=Hostinec%20V%20Z%C3%A1ti%C5%A1%C3%AD,%20755%2001%20Vset%C3%ADn%201&output=embed&z=15">
+        </iframe>
+      </section>
+  </main>
+
+  <footer class="text-center py-4 mt-auto bg-cream border-t border-black">
+    <p>&copy; 2025 Hostinec V Zátiší, Vsetín – Potůčky.</p>
+  </footer>
+
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+      document.getElementById('menu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
