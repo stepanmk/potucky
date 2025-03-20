@@ -6,85 +6,284 @@
   <title>Hostinec V Zátiší, Potůčky 179, Vsetín</title>
   <!-- Load Tailwind CSS from CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Lora', serif; }
     /* Custom cream color class */
     .bg-cream {
-      background-color: #FDFBD8;
+      background-color: #124030;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+    color: white; /* Change to your preferred color */
+    }
+    .swiper-pagination-bullet {
+    background-color: white; /* Change to your preferred color */
+    }
+
+  /* Change active pagination dot color */
+    .swiper-pagination-bullet-active {
+      background-color: #AAAAAA !important; /* Change active color */
     }
   </style>
 </head>
-<body class="bg-white text-gray-900 flex flex-col min-h-screen ">
+<body class="bg-gray-100 flex flex-col min-h-screen">
   
-  <!-- Header and Navigation using cream as the accent color -->
-  <div class="sticky top-0 bg-cream z-50 border-b border-black">
-    <header class="text-center py-6 flex flex-col items-center">
-      <!-- Pub Logo Placeholder -->
-      <!-- <div class="w-24 h-24 rounded-full border border-black"></div> -->
-      <h1 class="text-4xl font-bold">HOSTINEC V ZÁTIŠÍ</h1>
+  <div class="fixed top-0 z-50 w-full text-gray-100">
+
+    <header class="text-center flex flex-col items-center justify-end relative">
+      <div class="w-full h-20 bg-cream flex flex-row justify-between">
+        <div class="w-[calc(50%-152px)] h-full border-b border-[#EFE3AF] border-b-[2px]"></div>
+        <div class="w-[calc(50%-152px)] h-full border-b border-[#EFE3AF] border-b-[2px]"></div>
+      </div>
+      <div class="w-full h-20 flex items-center justify-around bg-cream shadow-md">
+        <div class="w-[calc(50%-128px)] h-full flex items-center justify-end pr-3 text-[#EFE3AF]">
+          <nav>
+            <ul id="menu-left" class="hidden flex-col lg:flex lg:flex-row lg:justify-center py-1 text-lg">
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 hover:underline">
+                  Úvod
+                </a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 hover:underline">
+                  Aktuality
+                </a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 hover:underline">
+                  Stálá nabídka
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="w-64 h-full"></div>
+        <div class="w-[calc(50%-128px)] h-full flex items-center lg:justify-start justify-end px-3 text-[#EFE3AF]">
+          <nav>
+            <ul id="menu-right" class="hidden flex-col lg:flex lg:flex-row lg:justify-center py-1 text-lg">
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 hover:underline text-nowrap">
+                  Akce a oslavy
+                </a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 hover:underline">
+                  Fotogalerie
+                </a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 hover:underline">
+                  Kontakt
+                </a>
+              </li>
+            </ul>
+            <div class="max-w-4xl mx-auto flex justify-end items-center lg:hidden">
+              <button id="menu-toggle" class="text-xl">☰</button>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="menu-mobile" class="w-full bg-[#fff9e1] hidden lg:hidden flex text-gray-900 shadow-md">
+        <nav class="w-full">
+          <ul id="nav-mobile" class="flex-col flex py-6 text-lg b w-full">
+            <li class="w-full flex justify-end">
+              <a href="#"
+                class="px-8 py-2 hover:underline w-full">
+                <span class="w-full flex items-start">Úvod</span>
+              </a>
+            </li>
+            <li class="w-full flex justify-end">
+              <a href="#"
+                class="px-8 py-2 hover:underline w-full">
+                <span class="w-full flex items-start">Aktuality</span>
+              </a>
+            </li>
+            <li class="w-full flex justify-end">
+              <a href="#"
+                class="px-8 py-2 hover:underline w-full">
+                <span class="w-full flex items-start">Stálá nabídka</span>
+              </a>
+            </li>
+            <li class="w-full flex justify-end">
+              <a href="#"
+                class="px-8 py-2 hover:underline w-full">
+                <span class="w-full flex items-start">Akce a oslavy</span>
+              </a>
+            </li>
+            <li class="w-full flex justify-end">
+              <a href="#"
+                class="px-8 py-2 hover:underline w-full">
+                <span class="w-full flex items-start">Fotogalerie</span>
+              </a>
+            </li>
+            <li class="w-full flex justify-end">
+              <a href="#"
+                class="px-8 py-2 hover:underline w-full">
+                <span class="w-full flex items-start">Kontakt</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <img class="absolute top-3 w-[253px]" src="img/potucky_logo.png">
     </header>
 
-    <!-- Navigation Bar -->
-    <nav class="border-t border-black">
-      <div class="max-w-4xl mx-auto px-4 py-3 flex justify-end items-center lg:hidden">
-        <span class="mr-2 pb-0.5">Menu</span>
-        <button id="menu-toggle" class="text-xl">☰</button>
-      </div>
-      <ul id="menu" class="hidden flex-col lg:flex lg:flex-row lg:justify-center py-1 text-lg">
-        <li>
-          <a href="#"
-             class="block px-6 py-2 hover:bg-gray-200 hover:text-gray-900">
-            Aktuality
-          </a>
-        </li>
-        <li>
-          <a href="#"
-             class="block px-6 py-2 hover:bg-gray-200 hover:text-gray-900">
-            Stálá nabídka
-          </a>
-        </li>
-        <li>
-          <a href="#"
-             class="block px-6 py-2 hover:bg-gray-200 hover:text-gray-900">
-            Fotogalerie
-          </a>
-        </li>
-        <li>
-          <a href="#"
-             class="block px-6 py-2 hover:bg-gray-200 hover:text-gray-900">
-            Kontakt
-          </a>
-        </li>
-      </ul>
-    </nav>
   </div>
 
-  <main class="w-full  mx-auto p-6 text-center border-black flex-grow">
-    <!-- <h2 class="text-2xl font-semibold">Welcome to Pub Name</h2> -->
-    <!-- <p class="mt-4 text-lg">Enjoy a cozy atmosphere with great drinks, delicious food, and live music.</p> -->
+  <div class="relative w-full h-screen">
+    <img class="absolute top-0 left-0 w-full h-full  object-cover" src="photos/darktable_exported/2.jpg">
+  </div>
+
+  <main class="w-full max-w-[1600px] mx-auto text-center flex-grow">
     
-    <div class="border border-black p-4">
-      <h3 class="text-xl font-semibold">Aktuality</h3>
-      <!-- <p class="mt-2">Try our handcrafted cocktails, fresh beers, and gourmet pub dishes.</p> -->
+    <div class="flex flex-col gap-y-8">
+      <div class="p-6">
+        <h3 class="text-3xl font-semibold pb-4 border-b border-neutral-300">Úvod</h3>
+        <div class="flex lg:flex-row flex-col pt-4 gap-14">
+          <div class="lg:w-[50%] flex flex-col items-start justify-center">
+            <p class="text-lg mb-2 text-justify">Hostinec V Zátiší ve Vsetíně se pyšní téměř staletou tradicí a vždy šlo o oblíbené místo pro odpočinek a setkávání s přáteli. 
+              Po mnoho let byl hostinec opuštěný a chátral, ale my jsme se rozhodli tuto situaci změnit. Přijďte nás navštívit a zažijte pohodovou atmosféru a poctivou pohostinnost 
+              uprostřed malebné valašské krajiny.
+            </p>
+
+            <p class="text-lg mb-2 text-justify">Kromě posezení u piva si můžete přijít zahrát <span class="font-semibold">kulečník</span>, zúčasnit se turnaje v kuželkách na <span class="font-semibold">letní kuželkové dráze</span> 
+              nebo navštivte některý námi pořádaný venkovní koncert v dřevěném altánu.
+            </p>
+
+            
+            <p class="text-lg mb-2 text-justify">V našem hostinci jsou také vítány Vaše ratolesti pro ktere máme připravené <span class="font-semibold">venkovní pískoviště</span>. Psi jsou u nás taktéž vítáni a je jim vstup povolen i do vnitřních prostor hostince. 
+            </p>
+          </div>
+          <div class="lg:w-[50%] flex flex-col items-start">
+            <img src="photos/vzatisi-old.jpg" class="w-full h-[calc(100%-2rem)] object-cover">
+            <span class="w-full h-[2rem] flex items-end justify-center">Hostinec V Zátíší kolem roku 1940.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6">
+        <h3 class="text-3xl font-semibold pb-4 border-b border-neutral-300">Aktuality</h3>
+      </div>
+      
+      <div class="p-6">
+        <h3 class="text-3xl font-semibold pb-4 border-b border-neutral-300">Stálá nabídka</h3>
+        <div class="flex lg:flex-row flex-col pt-4 gap-10">
+          <div class="lg:w-[50%] h-32 flex flex-col items-start">
+            <span class="font-semibold text-xl mb-3">Čepované pivo</span>
+            <div class="text-lg mb-2 flex justify-between w-full">
+              <span >Radegast Rázná 10</span>
+              <span >0,5l 39 Kč</span>
+            </div>
+            <div class="text-lg mb-2 flex justify-between w-full">
+              <span >Radegast Ryze hořká 12</span>
+              <span >0,5l 45 Kč</span>
+            </div>
+            <div class="text-lg mb-2 flex justify-between w-full">
+              <span >Bernard Jantarová 12</span>
+              <span >0,5l 45 Kč</span>
+            </div>
+          </div>
+          <div class="lg:w-[50%] h-32 flex flex-col items-start">
+            <span class="font-semibold text-xl mb-3">Alkoholické nápoje, nealko a pochutiny</span>
+            <p class="text-lg text-left mb-2">Nabízíme celou řadu alkoholických a nealkoholických nápojů, teplých nápojů a pochutin.</p>
+            <p class="text-lg text-left hover:underline hover:cursor-pointer font-semibold">Zobrazit kompletní nabídku.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6">
+        <h3 class="text-3xl font-semibold pb-4 border-b border-neutral-300">Akce a oslavy</h3>
+        <p class="text-lg pt-4 mb-2">Plánujete uspořádat soukromou oslavu nebo firemní akci? <span class="font-semibold hover:underline hover:cursor-pointer">Kontaktujte nás.</span></p>
+        <p class="text-lg mb-2">Jsme připraveni Vám zprostředkovat individuální servis včetně občerstvení. </p>
+        <p class="text-lg mb-2">Disponujeme dřevěným altánem pro živá vystoupení hudebních kapel a venkovními prostory s velkou kapacitou a ohništěm.</p>
+        <p class="text-lg">Možnost pořádání turnajů na letní kuželkové dráze.</p>
+      </div>
     </div>
-    
-    <div class="mt-6 border border-black p-4">
-      <h3 class="text-xl font-semibold">Stálá nabídka</h3>
-      <!-- <p class="mt-2">Live music every Friday and Saturday! Check out our calendar for more details.</p> -->
+    <div class="w-full px-6 pb-6">
+      <!-- Swiper Container -->
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="photos/resized/1.jpg" class="w-full h-auto object-cover" alt="Image 1">
+          </div>
+          <div class="swiper-slide">
+            <img src="photos/resized/2.jpg" class="w-full h-auto object-cover" alt="Image 2">
+          </div>
+          <div class="swiper-slide">
+            <img src="photos/resized/3.jpg" class="w-full h-auto object-cover" alt="Image 3">
+          </div>
+          <div class="swiper-slide">
+            <img src="photos/resized/4.jpg" class="w-full h-auto object-cover" alt="Image 4">
+          </div>
+          <div class="swiper-slide">
+            <img src="photos/resized/5.jpg" class="w-full h-auto object-cover" alt="Image 5">
+          </div>
+          <div class="swiper-slide">
+            <img src="photos/resized/6.jpg" class="w-full h-auto object-cover" alt="Image 6">
+          </div>
+          <div class="swiper-slide">
+            <img src="photos/resized/7.jpg" class="w-full h-auto object-cover" alt="Image 7">
+          </div>
+          <div class="swiper-slide">
+            <img src="photos/resized/8.jpg" class="w-full h-auto object-cover" alt="Image 8">
+          </div>
+          <div class="swiper-slide">
+            <img src="photos/resized/9.jpg" class="w-full h-auto object-cover" alt="Image 9">
+          </div>
+          <div class="swiper-slide">
+            <img src="photos/resized/10.jpg" class="w-full h-auto object-cover" alt="Image 10">
+          </div>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Navigation -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
     </div>
 
-    <div class="mt-6 flex lg:flex-row flex-col items-center justify-center bg-cream">
-      
-      <section class="lg:w-[50%] w-full h-96 flex items-center justify-start p-8">
+    <div class="flex lg:flex-row lg:h-96 flex-col items-center justify-center mb-6 text-gray-100 mx-6 bg-cream">
+      <section class="lg:w-[25%] w-full lg:h-80 flex items-start justify-start lg:p-8 px-8 pt-8 border-[#EFE3AF] lg:border-r lg:border-r-[2px]">
         <div class="flex-col flex items-start">
-          <span class="font-semibold text-lg mb-2">Adresa</span>
+          <span class="font-semibold text-lg mb-2">Kontakt</span>
           <span class="font-semibold">Hostinec V Zátiší</span>
           <span>Potůčky 179</span>
           <span class="mb-2">75501 Vsetín</span>
           <span class="font-semibold">+420 604 769 992</span>
-          <span class="mb-4 font-semibold">info@hostinecpotucky.cz</span>
-          <span class="font-semibold text-lg">Otevírací doba</span>
+          <span class="font-semibold">info@hostinecpotucky.cz</span>
+
+          <div class="flex space-x-4 lg:mt-6 my-3">
+            <!-- Facebook Icon -->
+            
+            <a href="https://facebook.com" target="_blank" class="text-gray-100 hover:text-[#EFE3AF]">
+                <svg class="w-12" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 5.02 3.66 9.18 8.44 9.88v-6.99h-2.5v-2.89h2.5v-2.2c0-2.47 1.48-3.83 3.74-3.83 1.09 0 2.24.19 2.24.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.81h2.77l-.44 2.89h-2.33v6.99C18.34 21.18 22 17.02 22 12z"/>
+                </svg>
+            </a>
+            <!-- Instagram Icon -->
+            <a href="https://instagram.com" target="_blank" class="text-gray-100 hover:text-[#EFE3AF]">
+                <svg class="w-12" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm8.5 1.5h-8.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5zM12 7.25a4.75 4.75 0 1 1 0 9.5 4.75 4.75 0 0 1 0-9.5zm0 1.5a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 0 0 0-6.5zm5.25-.75a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5z"/>
+                </svg>
+            </a>
+          </div>
+        </div>
+
+      </section>
+      <section class="lg:w-[25%] w-full lg:h-80 flex items-start justify-start lg:p-8 px-8 pb-8">
+        <div class="flex-col flex items-start">
+          <span class="font-semibold text-lg mb-2">Otevírací doba</span>
           <span>Pátek: 14:00–22:00 </span>
           <span>Sobota: 12:00–22:00 </span>
           <span>Neděle: 12:00–20:00 </span>
@@ -102,15 +301,29 @@
       </section>
     </div>
 
+
+
   </main>
 
-  <footer class="text-center py-4 mt-auto bg-cream border-t border-black">
+  <footer class="text-center h-20 mt-auto bg-cream flex items-center justify-center text-gray-100">
     <p>&copy; 2025 Hostinec V Zátiší</p>
   </footer>
-
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     document.getElementById('menu-toggle').addEventListener('click', function () {
-      document.getElementById('menu').classList.toggle('hidden');
+      document.getElementById('menu-mobile').classList.toggle('hidden');
+    });
+    const swiper = new Swiper('.swiper', {
+    loop: true,
+    autoplay: { delay: 3500 },
+    breakpoints: {
+      1024: { slidesPerView: 3 },
+      768: { slidesPerView: 2 },
+      480: { slidesPerView: 1 }
+    },
+    spaceBetween: 20, // Add spacing between images
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     });
   </script>
 </body>
